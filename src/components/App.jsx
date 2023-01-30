@@ -12,9 +12,19 @@ export const App = () => {
   const feedBacks = ['good', 'neutral', 'bad'];
 
   const updateStatistics = feedBack => {
-    if (feedBack === feedBacks[0]) setGood(good + 1);
-    if (feedBack === feedBacks[1]) setNeutral(neutral + 1);
-    if (feedBack === feedBacks[2]) setBad(bad + 1);
+    switch (feedBack) {
+      case feedBacks[0]:
+        setGood(good + 1);
+        break;
+      case feedBacks[1]:
+        setNeutral(neutral + 1);
+        break;
+      case feedBacks[2]:
+        setBad(bad + 1);
+        break;
+      default:
+        break;
+    }
   };
   const countPositiveFeedbackPercentage = () => {
     return Math.round((good / countTotalFeedback()) * 100);
